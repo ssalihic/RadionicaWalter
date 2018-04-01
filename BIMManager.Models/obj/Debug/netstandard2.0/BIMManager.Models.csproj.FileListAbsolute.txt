@@ -1,9 +1,0 @@
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\bin\Debug\netstandard2.0\BIMManager.Models.deps.json
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\bin\Debug\netstandard2.0\BIMManager.Models.dll
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\bin\Debug\netstandard2.0\BIMManager.Models.pdb
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\obj\Debug\netstandard2.0\BIMManager.Models.csprojResolveAssemblyReference.cache
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\obj\Debug\netstandard2.0\BIMManager.Models.csproj.CoreCompileInputs.cache
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\obj\Debug\netstandard2.0\BIMManager.Models.AssemblyInfoInputs.cache
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\obj\Debug\netstandard2.0\BIMManager.Models.AssemblyInfo.cs
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\obj\Debug\netstandard2.0\BIMManager.Models.dll
-C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Models\obj\Debug\netstandard2.0\BIMManager.Models.pdb
