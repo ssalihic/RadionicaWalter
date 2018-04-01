@@ -1,0 +1,15 @@
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\BIMManager.Data.deps.json
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\BIMManager.Data.dll
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\obj\Debug\netstandard2.0\BIMManager.Data.csprojResolveAssemblyReference.cache
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\obj\Debug\netstandard2.0\BIMManager.Data.csproj.CoreCompileInputs.cache
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\obj\Debug\netstandard2.0\BIMManager.Data.AssemblyInfoInputs.cache
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\obj\Debug\netstandard2.0\BIMManager.Data.AssemblyInfo.cs
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\BIMManager.Data.pdb
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\BIMManager.Models.dll
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\BIMManager.Models.pdb
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\bin\Debug\netstandard2.0\Microsoft.Extensions.Identity.Stores.xml
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\obj\Debug\netstandard2.0\BIMManager.Data.dll
+C:\Users\apoka\Desktop\PROJECTS\BIMManager\BIMManager.Data\obj\Debug\netstandard2.0\BIMManager.Data.pdb
