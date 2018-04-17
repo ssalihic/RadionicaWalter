@@ -1,5 +1,6 @@
 .vs
 .vscode/*
+.idea/
 
 BIMManager.Data/bin
 BIMManager.Data/obj
