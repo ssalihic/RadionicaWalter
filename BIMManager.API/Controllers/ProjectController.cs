@@ -14,15 +14,27 @@ namespace BIMManager.API.Controllers
     public class ProjectController : Controller
     {
         BIMManagerContext context;
-        public ProjectController()
+        public ProjectController(BIMManagerContext _context)
         {
-
+            context = _context;
         }
-        public ICollection<Models.Entities.Project> getAll()
+       
+
+        [HttpGet]
+        public IActionResult GetAll()
         {
-            return context.Projects.ToList();
-         
-        }
+            var projects = context.Projects.ToList();
+            if (projects.Count != 0)
+                return Ok(new
+                {
+                    status = true,
+                    data = projects
+                });
 
+            return NotFound(new
+            {
+                status = false
+            });
+        }
     }
 }
