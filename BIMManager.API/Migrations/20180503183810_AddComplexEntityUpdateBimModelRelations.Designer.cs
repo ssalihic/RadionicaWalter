@@ -11,9 +11,10 @@ using System;
 namespace BIMManager.API.Migrations
 {
     [DbContext(typeof(BIMManagerContext))]
-    partial class BIMManagerContextModelSnapshot : ModelSnapshot
+    [Migration("20180503183810_AddComplexEntityUpdateBimModelRelations")]
+    partial class AddComplexEntityUpdateBimModelRelations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,6 +26,10 @@ namespace BIMManager.API.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int>("ComplexId");
+
+                    b.Property<int>("EntityId");
+
                     b.Property<string>("Name");
 
                     b.Property<int>("ProjectId");
@@ -33,9 +38,49 @@ namespace BIMManager.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ComplexId");
+
+                    b.HasIndex("EntityId");
+
                     b.HasIndex("ProjectId");
 
                     b.ToTable("BIMModels");
+                });
+
+            modelBuilder.Entity("BIMManager.Models.Entities.Complex", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Longitude");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Complexes");
+                });
+
+            modelBuilder.Entity("BIMManager.Models.Entities.Entity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ComplexId");
+
+                    b.Property<double>("Latitude");
+
+                    b.Property<double>("Longitude");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ComplexId");
+
+                    b.ToTable("Entities");
                 });
 
             modelBuilder.Entity("BIMManager.Models.Entities.Project", b =>
@@ -213,9 +258,27 @@ namespace BIMManager.API.Migrations
 
             modelBuilder.Entity("BIMManager.Models.Entities.BIMModel", b =>
                 {
+                    b.HasOne("BIMManager.Models.Entities.Complex", "Complex")
+                        .WithMany()
+                        .HasForeignKey("ComplexId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("BIMManager.Models.Entities.Entity", "Entity")
+                        .WithMany()
+                        .HasForeignKey("EntityId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
                     b.HasOne("BIMManager.Models.Entities.Project", "Project")
                         .WithMany("BIMModels")
                         .HasForeignKey("ProjectId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("BIMManager.Models.Entities.Entity", b =>
+                {
+                    b.HasOne("BIMManager.Models.Entities.Complex", "Complex")
+                        .WithMany("Entities")
+                        .HasForeignKey("ComplexId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 

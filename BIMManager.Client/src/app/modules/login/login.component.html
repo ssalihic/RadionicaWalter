@@ -11,6 +11,12 @@
       <label>Password:</label>
       <input type="password" name="password" [(ngModel)]="password" class="form-control" autocomplete="new-password">
     </div>
-    <a routerLink="/projects"><button class="btn btn-success pull-right"> +Login</button></a>
+    <div class="alert alert-danger" *ngIf="errors">
+      {{errors.message}}
+    </div>
+    <a [routerLink]="['/register']" class="pull-left">Register</a>
+    <button class="btn btn-primary pull-right" (click)="login()">
+      <i class="fa fa-login"></i> Log in
+    </button>
   </form>
 </div>

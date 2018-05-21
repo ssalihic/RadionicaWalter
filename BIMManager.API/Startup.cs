@@ -17,6 +17,9 @@ using System.Text;
 using BIMManager.API.Services;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
+using BIMManager.Data.Abstract;
+using BIMManager.Data.Repositories;
+using BIMManager.API.Filters;
 
 namespace BIMManager
 {
@@ -49,6 +52,10 @@ namespace BIMManager
 
             // Register services
             services.AddScoped<JwtService>();
+            services.AddScoped<IProjectRepository, ProjectRepository>();
+            services.AddScoped<IComplexRepository, ComplexRepository>();
+            services.AddScoped<IBimModelRepository, BIMModelRepository>();
+            services.AddScoped<IEntityRepository, EntityRepository>();
 
             // CORS
             services.AddCors();
@@ -76,7 +83,10 @@ namespace BIMManager
                 });
 
             // Add MVC services to the services container.
-            services.AddMvc()
+            services.AddMvc(opt =>
+            {
+                opt.Filters.Add(typeof(ValidatorActionFilter));
+            })
                 .AddJsonOptions(opts =>
                 {
                     // Force Camel Case to JSON
@@ -107,13 +117,14 @@ namespace BIMManager
                 .AllowAnyHeader()
                 .AllowAnyMethod());
 
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
 
             app.UseExceptionHandler(
               builder =>

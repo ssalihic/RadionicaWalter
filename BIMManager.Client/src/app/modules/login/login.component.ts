@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
 import { Router } from '@angular/router';
 
+import { AuthenticationService } from '../../services/authentication.service';
+import { IAuthResponse } from '../../models/authentication.model';
+import { AuthService } from '../../services/auth.service';
+import { ApiService } from '../../services/api.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,23 +16,27 @@ export class LoginComponent {
 
   email = '';
   password = '';
+  errors: {};
 
-  constructor(private http: HttpClient) {
-    
-  }
+  constructor(private authenticationService: AuthenticationService,
+              private authService: AuthService,
+              private apiService: ApiService,
+              private router: Router) {}
 
-  btnClick = function () {
-    this.router.navigate(['/projects']);
-  };
-  /*login(): void {
+  login(): void {
 
-    this.http.post<any>('http://localhost:5000/api/auth/login', {
-      Email: this.email,
-      Password: this.password
+    this.errors = undefined;
+    this.authenticationService.login({
+      email: this.email,
+      password: this.password
     })
-      .subscribe((response: any) => console.log(response),
-      (err: any) => console.error(err));
-    this.router.navigateByUrl('/projects');
+      .subscribe((response: IAuthResponse) => {
 
-  }*/
+        this.authService.setToken(response.token);
+        this.apiService.setToken();
+        this.router.navigate(['/project']);
+      }, (err: HttpErrorResponse) => {
+        this.errors = err.error;
+      });
+  }
 }

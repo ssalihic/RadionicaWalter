@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from '../../services/authentication.service';
+import { AuthService } from '../../services/auth.service';
+import { ApiService } from '../../services/api.service';
+import { IAuthResponse } from '../../models/authentication.model';
 
 @Component({
   selector: 'app-register',
@@ -12,16 +17,23 @@ export class RegisterComponent {
   password = '';
   confirmPassword = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(private authenticationService: AuthenticationService,
+              private authService: AuthService,
+              private apiService: ApiService,
+              private router: Router) {}
 
   register(): void {
 
-    this.http.post<any>('http://localhost:5000/api/auth/register', {
-      Email: this.email,
-      Password: this.password,
-      ConfirmPassword: this.confirmPassword
+    this.authenticationService.register({
+      email: this.email,
+      password: this.password,
+      confirmPassword: this.confirmPassword
     })
-      .subscribe((response: any) => console.log(response),
-        (err: any) => console.error(err));
+      .subscribe((response: IAuthResponse) => {
+
+        this.authService.setToken(response.token);
+        this.apiService.setToken();
+        this.router.navigate(['/project']);
+      });
   }
 }

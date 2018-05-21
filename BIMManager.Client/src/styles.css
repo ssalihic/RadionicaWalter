@@ -21,3 +21,8 @@ html, body {
   max-width: 200px;
   max-height: 200px;
 }
+
+.row.no-margin {
+  margin-left: 0;
+  margin-right: 0;
+}

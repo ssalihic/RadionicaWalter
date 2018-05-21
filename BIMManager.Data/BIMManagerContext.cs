@@ -10,5 +10,7 @@ namespace BIMManager.Data
 
         public DbSet<Project> Projects { get; set; }
         public DbSet<BIMModel> BIMModels { get; set; }
+        public DbSet<Complex> Complexes { get; set; }
+        public DbSet<Entity> Entities { get; set; }
     }
 }
